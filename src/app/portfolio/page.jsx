@@ -6,7 +6,7 @@ import app from "/public/apps.jpg";
 const Portfolio = () => {
   return (
     <div>
-      <h2 className="text-3xl my-5">Choose a gallery</h2>
+      <h2 className="text-3xl my-5 font-bold">Choose a gallery</h2>
       <div className="flex gap-12">
         <Link
           href="/portfolio/illustrations"
@@ -32,7 +32,7 @@ const Portfolio = () => {
         </Link>
         <Link
           href="/portfolio/applications"
-          className="border-4 border-button-text rounded-md h-80 w-80 relative bg-cover"
+          className="border-4 border-button-text rounded-md h-80 w-80 relative bg-cover "
           style={{
             backgroundImage: `url(${app.src})`,
           }}
