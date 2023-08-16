@@ -25,7 +25,6 @@ module.exports = {
         "hero-bg": "#194c33",
         "hero-color": "#bbb",
       },
-
       maxWidth: {
         "screen-xl": "1366px",
       },
