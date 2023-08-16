@@ -1,5 +1,6 @@
 import Image from "next/image";
 import AboutUs from "/public/about-us.jpeg";
+import Button from "@/components/Button/button";
 
 const About = () => {
   return (
@@ -54,7 +55,11 @@ const About = () => {
             <br />
             - Dynamic Website
             <br />
-            <br />- Fast and handy mobile apps
+            <br />
+            - Fast and handy mobile apps
+            <br />
+            <br />
+            <Button title="contact" url="/contact" />
           </p>
         </div>
       </div>
