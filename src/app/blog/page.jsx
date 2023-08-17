@@ -2,91 +2,51 @@ import Link from "next/link";
 import Image from "next/image";
 import blog4 from "/public/blog4.jpg";
 
-const Blog = () => {
+const getData = async () => {
+  const res = await fetch("http://localhost:3000/api/posts", {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error("API Request failed. Try again!");
+  }
+  return res.json();
+};
+
+const Blog = async () => {
+  const data = await getData();
+
   return (
     <div className="flex flex-col gap-10">
       {/*Container*/}
 
       {/*Blog Post 1*/}
 
-      <Link href="/" className="flex">
-        {/*image Container*/}
-        <div className="flex-1 flex items-center justify-center">
-          <Image
-            src={blog4}
-            alt="blog-img"
-            width={400}
-            height={250}
-            className=" object-cover"
-          />
-        </div>
-        {/*text Container*/}
-        <div className="flex-1 flex flex-col items-center justify-center">
-          <h2 className="text-3xl font-extrabold mb-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </h2>
-          <p className=" text-sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde totam
-            deserunt, dolore asperiores fuga blanditiis? Sit amet ex beatae est.
-            Cupiditate perspiciatis voluptatem illo dicta optio quas vero, dolor
-            facere?
-          </p>
-        </div>
-      </Link>
-
-      {/*Blog Post 2*/}
-
-      <Link href="/" className="flex">
-        {/*image Container*/}
-        <div className="flex-1 flex items-center justify-center">
-          <Image
-            src={blog4}
-            alt="blog-img"
-            width={400}
-            height={250}
-            className=" object-cover"
-          />
-        </div>
-        {/*text Container*/}
-        <div className="flex-1 flex flex-col items-center justify-center">
-          <h2 className="text-3xl font-extrabold mb-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </h2>
-          <p className=" text-sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde totam
-            deserunt, dolore asperiores fuga blanditiis? Sit amet ex beatae est.
-            Cupiditate perspiciatis voluptatem illo dicta optio quas vero, dolor
-            facere?
-          </p>
-        </div>
-      </Link>
-
-      {/*Blog Post 3*/}
-
-      <Link href="/" className="flex gap-5">
-        {/*image Container*/}
-        <div className="flex-1 flex items-center justify-center">
-          <Image
-            src={blog4}
-            alt="blog-img"
-            width={400}
-            height={250}
-            className=" object-cover"
-          />
-        </div>
-        {/*text Container*/}
-        <div className="flex-1 flex flex-col items-center justify-center">
-          <h2 className="text-3xl font-extrabold mb-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </h2>
-          <p className=" text-sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde totam
-            deserunt, dolore asperiores fuga blanditiis? Sit amet ex beatae est.
-            Cupiditate perspiciatis voluptatem illo dicta optio quas vero, dolor
-            facere?
-          </p>
-        </div>
-      </Link>
+      {data.map((item) => (
+        <>
+          <Link
+            key={item._id}
+            href={`/blog/${item._id}`}
+            className="flex gap-10 my-10 items-center"
+          >
+            {/*image Container*/}
+            <div className="flex-none">
+              <Image
+                src={item.image}
+                alt="blog-img"
+                width={400}
+                height={160}
+                className=" object-contain"
+              />
+            </div>
+            {/*text Container*/}
+            <div className="flex-initial flex flex-col justify-center">
+              <h2 className="text-3xl font-extrabold mb-2">{item.title}</h2>
+              <p className=" text-sm">{item.desc}</p>
+            </div>
+          </Link>
+        </>
+      ))}
     </div>
   );
 };

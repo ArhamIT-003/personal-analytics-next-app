@@ -7,9 +7,7 @@ import { useTheme } from "next-themes";
 const DarkModeToggle = () => {
   //   const { toggle, mode } = useContext(ThemeContext);
   const { resolvedTheme, setTheme } = useTheme();
-
-  console.log(resolvedTheme);
-
+  
   return (
     <div
       className=" w-11 h-7 flex justify-center items-center p-1 border-2 rounded-md relative cursor-pointer"
