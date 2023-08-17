@@ -8,7 +8,7 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-
+  darkMode: "class",
   theme: {
     extend: {
       screens: {
@@ -16,6 +16,9 @@ module.exports = {
       },
       height: {
         '110': "500px",
+      },
+      borderRadius: {
+        '50': "50%",
       },
       colors: {
         black: "#111",

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Button from "../Button/button";
+import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 
 const navbar = [
   {
@@ -40,11 +41,13 @@ const Navbar = () => {
         <Link href="/">Maklytics</Link>
       </div>
       <div className="flex items-center space-x-4">
+        <DarkModeToggle />
         {navbar.map((list) => (
           <Link key={list.id} href={list.url}>
             {list.title}
           </Link>
         ))}
+
         <Button title="logout" url="/" />
       </div>
     </div>
