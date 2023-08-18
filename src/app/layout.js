@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import { Provider } from "@/context/ThemeContext";
 const inter = Inter({ subsets: ["latin"] });
+import AuthProvider from "@/components/AuthProvider/AuthProvider";
 
 export const metadata = {
   title: "Maklytics",
@@ -17,11 +18,13 @@ export default function RootLayout({ children }) {
         className={`max-w-screen-full overflow-y-auto bg-white text-black dark:bg-black dark:text-white ${inter.className}`}
       >
         <Provider>
-          <div className="mx-auto max-w-screen-xl px-16 min-h-screen flex flex-col justify-between">
-            <Navbar />
-            {children}
-            <Footer />
-          </div>
+          <AuthProvider>
+            <div className="mx-auto max-w-screen-xl px-16 min-h-screen flex flex-col justify-between">
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
+          </AuthProvider>
         </Provider>
       </body>
     </html>
