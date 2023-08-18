@@ -1,6 +1,12 @@
 import Image from "next/image";
 import contactImage from "/public/contact.png";
 import Button from "@/components/Button/button";
+
+export const metadata = {
+  title: "Contact",
+  description: "This is the contact page",
+};
+
 const Contact = () => {
   return (
     <div className="">

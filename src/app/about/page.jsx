@@ -2,6 +2,11 @@ import Image from "next/image";
 import AboutUs from "/public/about-us.jpeg";
 import Button from "@/components/Button/button";
 
+export const metadata = {
+  title: "About",
+  description: "This is the about page",
+};
+
 const About = () => {
   return (
     <div>

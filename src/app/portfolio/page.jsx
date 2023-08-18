@@ -3,6 +3,11 @@ import illustration from "/public/illustration.png";
 import website from "/public/websites.jpg";
 import app from "/public/apps.jpg";
 
+export const metadata = {
+  title: "Portfolio",
+  description: "This is the portfolio page",
+};
+
 const Portfolio = () => {
   return (
     <div>
