@@ -1,5 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
+mongoose.set('strictQuery', false);
+
 mongoose.Promise = global.Promise;
 
 const postSchema = new Schema(
